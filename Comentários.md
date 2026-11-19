@@ -1,93 +1,125 @@
 
-# Devolutiva formativa — Atividade 01 da SA
+# Devolutiva formativa — Atividade 02 da SA
 
 **Estudante:** Henrique Gabriel Martins  
 **Turma:** Rio Negrinho — Manhã  
 **Unidade Curricular:** Programação de Aplicativos  
-**Projeto:** Fábrica de Chocolate  
-**Código analisado:** `codigo/app.py`  
-**Referência:** Situação de Aprendizagem nº 1 — *Da Ideia ao Código*
+**Projeto:** ChocoGestão — Fábrica de Chocolate  
+**Atividade:** Interface funcional  
+**Arquivos analisados:** `codigo/app.py`, `interface/index.html`, `interface/script.js` e `interface/style.css`
 
 ## O que você já conseguiu desenvolver
 
-Henrique, você iniciou um sistema para uma fábrica de chocolates. Seu código demonstra os primeiros passos na criação de menus, funções e estruturas condicionais em Python.
+Henrique, seu projeto apresentou uma evolução importante em relação à atividade anterior.
+
+Você criou uma interface web com cadastro, listagem e exclusão de produções, utilizando HTML, CSS e JavaScript.
 
 Pontos positivos identificados:
 
-- Criou uma função `menu()` para apresentar as opções e receber a escolha do usuário.
-- Utilizou `input()` para trabalhar com informações digitadas.
-- Aplicou `if` e `elif` para identificar a opção escolhida.
-- Criou uma função inicial `cadastrar_producao()` para solicitar o tipo e a quantidade de chocolates produzidos.
-- Utilizou `return` na função do menu para devolver a opção selecionada.
-- Escolheu um contexto relacionado à Situação de Aprendizagem.
+- Organizou o HTML em seções para menu, cadastro, listagem e encerramento.
+- Criou uma navegação entre telas utilizando HTML e CSS.
+- Utilizou JavaScript para processar o formulário.
+- Implementou funções como `salvarProducoes()` e `mostrarProducoes()`.
+- Utilizou `localStorage` para manter os registros no navegador.
+- Aplicou arrays e objetos para organizar as produções.
+- Implementou validação de nomes e quantidades.
+- Criou verificação para evitar o cadastro duplicado de tipos de chocolate.
+- Implementou exclusão de registros mediante confirmação.
+- Separou HTML, CSS e JavaScript em arquivos próprios.
+
+## O que foi ajustado desde a última devolutiva
+
+### 1. Chamada da função de cadastro — ATENDIDO
+
+Na atividade anterior, a função de cadastro existia, mas não era chamada pelo menu Python.
+
+**Correção identificada:** a versão atual chama `cadastrar_producao()` quando a opção 1 é escolhida.
+
+### 2. Armazenamento dos registros — ATENDIDO
+
+Anteriormente, as produções não eram armazenadas.
+
+**Correção identificada:** o código Python utiliza uma lista, enquanto a interface JavaScript utiliza armazenamento local.
+
+### 3. Listagem das produções — ATENDIDO
+
+A versão atual apresenta uma função para listar as produções em Python.
+
+Na interface web, o JavaScript também permite visualizar os registros cadastrados.
+
+### 4. Repetição do menu — ATENDIDO
+
+O Python agora utiliza `while True`, permitindo repetir as operações até a escolha da saída.
+
+### 5. Validação da quantidade — PARCIALMENTE ATENDIDO
+
+A interface JavaScript valida quantidades inteiras e positivas.
+
+Entretanto, o código Python ainda recebe a quantidade por `input()` e a armazena como texto, sem aplicar a mesma regra.
+
+**Como melhorar:** adicionar validação equivalente à versão Python.
 
 ## O que precisa ser corrigido
 
-### 1. Chamar a função de cadastro
+### 6. Evitar diferenças entre as versões
 
-Você criou a função `cadastrar_producao()`, mas a opção 1 do menu apenas apresenta a mensagem de que o cadastro foi escolhido.
+O projeto possui uma versão Python e uma versão web com regras de validação diferentes.
 
-**Como melhorar:** chamar `cadastrar_producao()` quando o usuário selecionar a opção 1. Isso permitirá utilizar a funcionalidade que já começou a desenvolver.
+**Como melhorar:** documentar o funcionamento de cada versão e manter regras equivalentes para os cadastros.
 
-### 2. Implementar o armazenamento das produções
+### 7. Organizar o fluxo principal do Python
 
-Atualmente, a função de cadastro solicita informações e as apresenta na tela, mas não as armazena. Além disso, a opção de listar produções ainda não apresenta registros.
+O laço principal funciona, mas ainda está diretamente no arquivo.
 
-**Como melhorar:** criar uma lista para guardar os dados. Cada produção pode ser representada por um dicionário com `tipo` e `quantidade`.
+**Como melhorar:** criar uma função `principal()` e utilizar `if __name__ == "__main__":` para iniciar a aplicação.
 
-### 3. Manter o menu funcionando até o usuário sair
+### 8. Melhorar a documentação
 
-O programa executa o menu apenas uma vez. Depois de selecionar uma opção, ele encerra.
-
-**Como melhorar:** utilizar um `while True` para repetir a apresentação do menu até a opção de saída ser escolhida.
-
-### 4. Validar a quantidade produzida
-
-A quantidade recebida em `cadastrar_producao()` é armazenada apenas como texto e não passa por validação.
-
-**Como melhorar:** converter a quantidade para inteiro, verificar se é maior que zero e tratar entradas inválidas com `try/except ValueError`.
+**Como melhorar:** explicar no README como executar o Python e como abrir a interface web. Informar também que os dados da interface são armazenados no navegador.
 
 ## Oportunidades de melhoria
 
-### 5. Criar uma função de listagem
+### 9. Melhorar a persistência dos dados
 
-Depois de armazenar as produções, será possível implementar `listar_producoes()`.
+O uso de `localStorage` permite manter registros entre recarregamentos da página.
 
-**Como melhorar:** percorrer os registros com `for`, exibindo o tipo e a quantidade. Se não houver registros, apresentar uma mensagem adequada.
+**Como melhorar:** incluir uma opção de limpar os registros e explicar que os dados permanecem apenas naquele navegador.
 
-### 6. Organizar o fluxo principal
+### 10. Ampliar os testes de validação
 
-As condições do menu estão diretamente no final do arquivo.
+**Como melhorar:** testar nomes repetidos com letras maiúsculas e minúsculas, quantidades fracionadas, valores negativos e campos vazios.
 
-**Como melhorar:** criar uma função `principal()` que controle a repetição do menu e chame as demais funções. Utilizar `if __name__ == "__main__":` para iniciar o programa.
+### 11. Melhorar a documentação das funções
 
-### 7. Documentar as funcionalidades
+Os comentários existentes ajudam a identificar as funcionalidades.
 
-O README apresenta a identificação do projeto, mas ainda não explica seu funcionamento.
-
-**Como melhorar:** descrever o objetivo da fábrica, as operações disponíveis e a forma de executar o código. Adicionar comentários simples às regras que precisem de explicação.
+**Como melhorar:** utilizar comentários mais explicativos nas validações e documentar o que cada função recebe e produz.
 
 ## Testes recomendados
 
-1. Abrir o menu e escolher cadastrar produção.
-2. Informar um tipo válido de chocolate.
-3. Tentar digitar letras na quantidade.
-4. Tentar cadastrar quantidade zero ou negativa.
-5. Cadastrar duas produções diferentes.
-6. Listar os registros armazenados.
-7. Utilizar uma opção de menu inexistente.
-8. Encerrar o programa pela opção de saída.
+1. Cadastrar uma produção válida.
+2. Tentar cadastrar quantidade zero.
+3. Informar quantidade negativa ou fracionada.
+4. Tentar cadastrar o mesmo chocolate duas vezes.
+5. Cadastrar dois tipos diferentes.
+6. Listar as produções.
+7. Excluir um registro e cancelar outra exclusão.
+8. Atualizar a página e verificar os dados.
+9. Repetir os testes na versão Python.
+10. Encerrar o programa Python pela opção correta.
 
 ## Prioridades para a próxima versão
 
-1. **Fazer a opção 1 chamar a função de cadastro.**
-2. **Criar uma lista para armazenar as produções.**
-3. **Implementar a listagem dos registros.**
-4. **Utilizar um laço de repetição para manter o menu ativo.**
-5. **Validar as quantidades e testar o programa completo.**
+1. **Manter as validações consistentes nas duas versões.**
+2. **Criar uma função principal no Python.**
+3. **Documentar a utilização do armazenamento local.**
+4. **Ampliar os testes das entradas inválidas.**
+5. **Explicar as funcionalidades no README.**
 
 ## Mensagem final
 
-Henrique, você já começou a utilizar conceitos fundamentais, como **funções, entrada de dados, condições e retorno de valores**. Esses conhecimentos são a base para desenvolver programas maiores.
+Henrique, você corrigiu vários pontos apresentados na avaliação anterior.
 
-Agora, seu principal objetivo deve ser **concluir uma funcionalidade completa**, desde a entrada das informações até seu armazenamento e consulta. Avance aos poucos, executando e testando o código a cada alteração. Assim, você poderá compreender melhor como as diferentes partes do sistema trabalham juntas.
+O projeto evoluiu de um menu inicial incompleto para uma solução que permite cadastrar, consultar e excluir produções.
+
+Continue aplicando funções, validações e testes, garantindo que o comportamento esperado seja mantido em todas as versões da aplicação.
