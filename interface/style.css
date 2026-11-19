@@ -1,0 +1,175 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5eee8;
+    color: #3e2723;
+}
+
+header {
+    background-color: #4e2b20;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+main {
+    width: 90%;
+    max-width: 500px;
+    margin: 40px auto;
+}
+
+/* Esconde os seletores */
+input[type="radio"] {
+    display: none;
+}
+
+/* Esconde todas as telas */
+.menu,
+.tela-cadastro,
+.tela-listagem,
+.tela-encerramento {
+    display: none;
+}
+
+/* Mostra somente a tela selecionada */
+#inicio:checked ~ .menu {
+    display: block;
+}
+
+#cadastro:checked ~ .tela-cadastro {
+    display: block;
+}
+
+#listagem:checked ~ .tela-listagem {
+    display: block;
+}
+
+#encerramento:checked ~ .tela-encerramento {
+    display: block;
+}
+
+/* Aparência das telas */
+.menu,
+.tela-cadastro,
+.tela-listagem,
+.tela-encerramento {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px #00000020;
+}
+
+h2 {
+    text-align: center;
+    color: #6b3929;
+    margin-bottom: 25px;
+}
+
+/* Botões do menu */
+.botao {
+    display: block;
+    background-color: #75452f;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background-color: #4e2b20;
+}
+
+.sair {
+    background-color: #a83232;
+}
+
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+form button {
+    background-color: #75452f;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button:hover {
+    background-color: #4e2b20;
+}
+
+/* Botão voltar */
+.voltar {
+    display: inline-block;
+    margin-top: 25px;
+    color: #75452f;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Lista de produções */
+#lista-producoes div {
+    background-color: #f5eee8;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+}
+
+#lista-producoes p {
+    margin-bottom: 8px;
+}
+
+#lista-producoes button {
+    background-color: #a83232;
+    color: white;
+    border: none;
+    padding: 9px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+#lista-producoes button:hover {
+    background-color: #7d2020;
+}
+
+#lista-producoes hr {
+    border: 0;
+    border-top: 1px solid #d8c5b8;
+    margin-top: 10px;
+}
+
+.tela-listagem > p,
+.tela-encerramento p {
+    text-align: center;
+}

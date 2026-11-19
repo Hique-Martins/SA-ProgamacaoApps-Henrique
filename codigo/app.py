@@ -1,3 +1,8 @@
+
+import os
+
+producoes = []
+
 def menu():
     print("================================")
     print("      FABRICA DE CHOCOLATE")
@@ -7,27 +12,62 @@ def menu():
     print("3 - Sair")
 
     opcao = input("Escolha uma opção: ")
-    
+
     return opcao
 
+
 def cadastrar_producao():
+    os.system("cls")
+
     print("=== CADASTRO DE PRODUÇÃO ===")
 
     tipo = input("Qual o tipo de chocolate? ")
     quantidade = input("Quantos chocolates foram produzidos? ")
 
-    print("Chocolate:", tipo)
-    print("Quantidade:", quantidade)
+    producoes.append([tipo, quantidade])
 
-escolha = menu()
+    print("\nProdução cadastrada com sucesso!")
+    input("\nPressione ENTER para voltar ao menu...")
 
-print("Você escolheu:", escolha)
 
-if escolha == "1":
-    print("Você escolheu cadastrar produção")
+def listar_producoes():
+    os.system("cls")
 
-elif escolha == "2":
-    print("Você escolheu listar produções")
+    print("==============================")
+    print("    PRODUÇÕES CADASTRADAS")
+    print("==============================")
 
-elif escolha == "3":
-    print("Encerrando o sistema")
+    if len(producoes) == 0:
+        print("Nenhuma produção cadastrada.")
+
+    for producao in producoes:
+        print("Chocolate:", producao[0])
+        print("Quantidade:", producao[1])
+        print("----------------------")
+
+    input("\nPressione ENTER para voltar ao menu...")
+
+
+while True:
+    os.system("cls")
+    escolha = menu()
+
+    if escolha == "1":
+        cadastrar_producao()
+
+    elif escolha == "2":
+        listar_producoes()
+
+    elif escolha == "3":
+        os.system("cls")
+        print("================================")
+        print("                                ")
+        print("       SISTEMA ENCERRADO!       ")
+        print("                                ")
+        print("================================")
+        break
+
+    else:
+        print("Opção inválida!")
+        input("\nPressione ENTER para continuar...")
+

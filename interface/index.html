@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChocoGestão</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🍫 ChocoGestão</h1>
+        <p>Sistema de gerenciamento de produção</p>
+    </header>
+
+    <main>
+
+        <input type="radio" name="tela" id="inicio" checked>
+        <input type="radio" name="tela" id="cadastro">
+        <input type="radio" name="tela" id="listagem">
+        <input type="radio" name="tela" id="encerramento">
+
+        <!-- Menu principal -->
+        <section class="menu">
+            <h2>Menu Principal</h2>
+
+            <label for="cadastro" class="botao">
+                Cadastrar produção
+            </label>
+
+            <label for="listagem" class="botao">
+                Listar produções
+            </label>
+
+            <label for="encerramento" class="botao sair">
+                Sair
+            </label>
+        </section>
+
+        <!-- Cadastro -->
+        <section class="tela-cadastro">
+            <h2>Cadastrar produção</h2>
+
+            <form id="formulario">
+
+                <label for="tipo">Nome do chocolate:</label>
+                <input
+                    type="text"
+                    id="tipo"
+                    placeholder="Ex: Chocolate ao leite"
+                    required
+                >
+
+                <label for="quantidade">Quantidade produzida:</label>
+                <input
+                    type="number"
+                    id="quantidade"
+                    placeholder="Ex: 50"
+                    min="1"
+                    step="1"
+                    required
+                >
+
+                <button type="submit">Cadastrar</button>
+
+            </form>
+
+            <label for="inicio" class="voltar">
+                Voltar ao menu
+            </label>
+        </section>
+
+        <!-- Listagem -->
+        <section class="tela-listagem">
+            <h2>Produções cadastradas</h2>
+
+            <div id="lista-producoes">
+                <p>Nenhuma produção cadastrada.</p>
+            </div>
+
+            <label for="inicio" class="voltar">
+                Voltar ao menu
+            </label>
+        </section>
+
+        <!-- Encerramento -->
+        <section class="tela-encerramento">
+            <h2>🍫 SISTEMA ENCERRADO!</h2>
+
+            <p>Obrigado por utilizar o ChocoGestão.</p>
+
+            <label for="inicio" class="voltar">
+                Voltar ao menu
+            </label>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
